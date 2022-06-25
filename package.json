@@ -1,0 +1,11 @@
+{
+  "name": "puppeteer-crash",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AnguleMathias/puppeteer-crash.git",
+  "author": "Mathias Angule <angulemathias3@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^15.1.0"
+  }
+}

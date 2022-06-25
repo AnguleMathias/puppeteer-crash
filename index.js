@@ -33,6 +33,15 @@ const start = async () => {
     return imgs.map((img) => img.src);
   });
 
+  // submitting a form
+  await page.type("#ourfield", "blue");
+
+  await Promise.all([page.click("#ourform button"), page.waitForNavigation()]);
+
+  const message = await page.$eval("#message", (el) => el.textContent);
+
+  console.log("message: ", message);
+
   for (const photo of photos) {
     const imagePage = await page.goto(photo);
 

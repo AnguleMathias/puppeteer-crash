@@ -23,6 +23,11 @@ const start = async () => {
 
   await fs.writeFile("cat-names.txt", catNames.join("\r\n"));
 
+  // clicking a button
+  await page.click("#clickme");
+  const clickedData = await page.$eval("#data", (el) => el.textContent);
+  console.log("clickedData: ", clickedData);
+
   // save photos to folder
   const photos = await page.$$eval("img", (imgs) => {
     return imgs.map((img) => img.src);

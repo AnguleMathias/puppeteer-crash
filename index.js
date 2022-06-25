@@ -23,6 +23,17 @@ const start = async () => {
 
   await fs.writeFile("cat-names.txt", catNames.join("\r\n"));
 
+  // save photos to folder
+  const photos = await page.$$eval("img", (imgs) => {
+    return imgs.map((img) => img.src);
+  });
+
+  for (const photo of photos) {
+    const imagePage = await page.goto(photo);
+
+    await fs.writeFile(photo.split("/").pop(), await imagePage.buffer());
+  }
+
   // close browser
   await browser.close();
 };

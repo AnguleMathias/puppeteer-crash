@@ -6,6 +6,7 @@
 yarn-error.log
 functions
 *.png
+*.txt
 
 # dependencies
 /node_modules
